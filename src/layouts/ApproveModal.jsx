@@ -1,56 +1,78 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Formik, Form, Field } from "formik";
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { RiCloseLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 import { urls } from "../constants/links";
-import { RiCloseLine } from "react-icons/ri";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
-const ApproveModal = ({ setIsOpen }) => {
+const Modal = ({ setIsOpen }) => {
   const axiosPrivate = useAxiosPrivate();
-  const [students, setStudents] = useState([]);
-
-  const controller = new AbortController();
-  const fetchStudent = async () => {
-    try {
-      const response = await axiosPrivate.get(urls.MYSTUDENTS);
-      setStudents(response.data);
-    } catch (error) {
-    //   toast.error("Cannot retrieve students data at this time");
-    }
-  };
-
-  useEffect(() => {
-    fetchStudent();
-    return () => {
-      controller.abort();
-    };
-  }, []);
-
   return (
     <>
-      <div className="darkBG" onClick={() => setIsOpen(false)}>
-        <div className="centered">
-          <div className="modal">
-            <div className="modalHeader">
-              <h5 className="heading">Approve</h5>
-            </div>
-            <button className="closeBtn" onClick={() => setIsOpen(false)}>
-              <RiCloseLine style={{ marginBottom: "-3px" }} />
-            </button>
-
-            <div className="modalContent">
-                <Formik
-                    initialValues={{
-                        student: students,
-                        present: true,
-                        unit: students
-                    }}
-                ></Formik>
-            </div>
+      <div className="darkBG" onClick={() => setIsOpen(false)} />
+      <div className="centered">
+        <div className="modal">
+          <div className="modalHeader">
+            <h5 className="heading">Mark Student</h5>
           </div>
+          <button className="closeBtn" onClick={() => setIsOpen(false)}>
+            <RiCloseLine style={{ marginBottom: "-3px" }} />
+          </button>
+
+          <div className="modalContent">
+            <Formik
+              initialValues={{
+                student: "",
+                present: true,
+                unit: "",
+              }}
+              onSubmit={async (values) => {
+                const formData = new FormData();
+                formData.append("unit", values.unit);
+                formData.append("student", values.student);
+                try {
+                  await axiosPrivate.post(urls.APPROVE, formData);
+                  toast.success("Student Marked");
+                  setIsOpen(false);
+                } catch (error) {}
+              }}
+            >
+              {({ touched }) => (
+                <Form className="profile-card">
+                  <div className="update-input-entry">
+                    <label htmlFor="unit">Unit Code</label>
+                    <Field name="unit" className="input-field" />
+                  </div>
+
+                  <div className="update-input-entry">
+                    <label htmlFor="student">
+                      Student Registration Number
+                    </label>
+                    <Field name="student" className="input-field" />
+                  </div>
+
+                  <button type="submit" className="nav-button">
+                    Submit
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </div>
+
+          {/* <div className="modalActions">
+            <div className="actionsContainer">
+              <button className="deleteBtn" type="submit">
+                Add
+              </button>
+              <button className="cancelBtn" onClick={() => setIsOpen(false)}>
+                Cancel
+              </button>
+            </div>
+          </div> */}
         </div>
       </div>
     </>
   );
 };
+
+export default Modal;
