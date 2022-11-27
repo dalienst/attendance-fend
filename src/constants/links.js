@@ -8,6 +8,7 @@ const privateLinks = {
   Units: '/myunits',
   Students: '/students',
   Approve: '/approve',
+  Statistics: '/statistics',
 };
 
 const urls = {
@@ -18,6 +19,7 @@ const urls = {
     APPROVE: "approve/",
     MYUNITS: "myunits/",
     MYSTUDENTS: "myunit/",
+    STUDENTSTATS: "myapprove/",
 };
 
 export {urls, publicLinks, privateLinks}; 

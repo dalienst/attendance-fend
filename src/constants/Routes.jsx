@@ -9,6 +9,7 @@ const Registration = React.lazy(() => import("../pages/Registration"));
 const Dashboard = React.lazy(() => import("../pages/Dashboard"));
 const Units = React.lazy(() => import("../pages/Units"));
 const Students = React.lazy(() => import("../pages/Students"));
+const Statistics = React.lazy(() => import("../pages/Statistics"));
 // const Profile = React.lazy(() => import("../pages/Profile"));
 // const UpdateProfile = React.lazy(() => import("../pages/UpdateProfile"));
 
@@ -25,6 +26,7 @@ function BaseRouter() {
                 <Route path={privateLinks.Dashboard} element={<Dashboard />} />
                 <Route path={privateLinks.Units} element={<Units />} />
                 <Route path={privateLinks.Students} element={<Students/>} />
+                <Route path={privateLinks.Statistics} element={<Statistics />} />
               </Route>
             </Route>
         </Routes>
