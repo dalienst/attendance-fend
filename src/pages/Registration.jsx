@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { RegistrationSchema } from "../validation/Registration";
+import { RegistrationSchema } from "../validation/validation";
 import axios from "../api/axios";
 import { urls, publicLinks } from "../constants/links";
 import registerSvg from "../svgs/register.svg";

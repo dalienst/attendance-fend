@@ -39,6 +39,12 @@ h6 {
   font-weight: bold;
   margin-bottom: 1.5em;
 }
+button: {
+  border: none;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+}
 /* End of globals */
 
 /* Forms */
@@ -161,6 +167,8 @@ img.avatar {
   color: #b2bac2;
   text-decoration: none;
   cursor: pointer;
+  outline: none;
+  border: none;
 }
 .home {
   margin-top: 15px;
@@ -307,17 +315,72 @@ td {
 }
 
 .update-input-entry {
-    color: black;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
 }
 
 .update-input-field {
-    padding-left: 8px;
-    padding-right: 8px;
-    border: 1px solid;
-    border-radius: 2px;
-    padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 5px;
 }
+
+/* Profile Page */
+.greeting {
+  margin: auto;
+  padding: 1rem;
+  border-radius: 20px;
+  background-color: #edf2f7;
+  margin-bottom: 1em;
+}
+
+.greeting-title {
+  margin-bottom: 0.5em;
+}
+
+.greeting-passage {
+  margin-bottom: 0.5em;
+}
+.profile-edit-button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.profile-card {
+  background-color: #edf2f7;
+  margin: auto;
+  padding: 1em;
+}
+.profile-card-title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.profile-card-body {
+  margin: auto;
+}
+.profile-card-form {
+  margin: auto;
+}
+.profile-column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+}
+.form-row-input {
+  padding-left: 8px;
+  border: none;
+  padding: 0.75em;
+  border-radius: 5px;
+}
+.form-row-input:focus {
+  outline: none;
+}
+
+/* End of profile */

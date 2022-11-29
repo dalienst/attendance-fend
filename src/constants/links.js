@@ -5,21 +5,23 @@ const publicLinks = {
 
 const privateLinks = {
   Dashboard: '/dashboard',
+  Profile: '/profile',
   Units: '/myunits',
   Students: '/students',
   Approve: '/approve',
   Statistics: '/statistics',
+  EditProfile: '/profile/edit',
 };
 
 const urls = {
     REGISTER: "register/",
     LOGIN: "login/",
     REFRESH: "token/refresh/",
-    STUDENT: "student/",
-    APPROVE: "approve/",
+    STUDENT: "/",
+    APPROVE: "mark/",
     MYUNITS: "myunits/",
-    MYSTUDENTS: "myunit/",
-    STUDENTSTATS: "myapprove/",
+    MYSTUDENTS: "mystudents/",
+    STUDENTSTATS: "marked/",
 };
 
 export {urls, publicLinks, privateLinks}; 

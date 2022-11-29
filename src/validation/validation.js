@@ -18,4 +18,9 @@ const RegistrationSchema = Yup.object().shape({
     .oneOf([Yup.ref("password"), null], "Confirm Password does not match"),
 });
 
-export { RegistrationSchema };
+const ProfileSchema = Yup.object().shape({
+  username: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
+  bio: Yup.string().min(2, 'The bio is too short!')
+});
+
+export { RegistrationSchema, ProfileSchema };

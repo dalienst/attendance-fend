@@ -17,7 +17,7 @@ export default function Students() {
     const fetchStudent = async () => {
         try {
             const response = await axiosPrivate.get(urls.MYSTUDENTS);
-            setStudents(response.data);
+            setStudents(response.data.results);
             
         } catch (error) {
             toast.error("Cannot retrieve students data at this time")
@@ -53,7 +53,6 @@ export default function Students() {
                   <tr>
                     <th>Unit</th>
                     <th>Registration Number</th>
-                    <th>Student Name</th>
                     {/* <th>Action</th> */}
                   </tr>
                 </thead>
@@ -61,8 +60,7 @@ export default function Students() {
                   {students.map((student) => (
                     <tr key={student.id}>
                       <td>{student.unit}</td>
-                      <td>{student.regnumber}</td>
-                      <td>{student.sname}</td>
+                      <td>{student.student}</td>
                       {/* <td>
                         <div>
                           <Link className="nav-button">MARK</Link>

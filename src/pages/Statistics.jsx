@@ -14,8 +14,7 @@ export default function Statistics() {
   const fetchStat = async () => {
     try {
       const response = await axiosPrivate.get(urls.STUDENTSTATS);
-      setStats(response.data);
-      console.log(response.data);
+      setStats(response.data.results);
     } catch (error) {
       toast.error("Cannot fetch statistics at this time");
     }
@@ -55,7 +54,7 @@ export default function Statistics() {
                       <td>{stat.created_at}</td>
                       <td>{stat.unit}</td>
                       <td>{stat.student}</td>
-                      <td>{stat.present.toString()}</td>
+                      <td>{stat.status.toString()}</td>
                     </tr>
                   ))}
                 </tbody>

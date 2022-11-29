@@ -14,7 +14,7 @@ export default function Units() {
   const fetchUnit = async () => {
     try {
       const response = await axiosPrivate.get(urls.MYUNITS);
-      setUnits(response.data);
+      setUnits(response.data.results);
     } catch (error) {
       toast.error("Cannot fetch your units at this time");
     }
