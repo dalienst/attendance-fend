@@ -19,7 +19,7 @@ const RegistrationSchema = Yup.object().shape({
 });
 
 const ProfileSchema = Yup.object().shape({
-  username: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
+  name: Yup.string().min(2, 'Too Short!').max(100, 'Too Long!'),
   bio: Yup.string().min(2, 'The bio is too short!')
 });
 

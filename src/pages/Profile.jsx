@@ -61,7 +61,13 @@ export default function Profile() {
               <Link to={privateLinks.EditProfile} className="nav-button">
                 Edit Profile
               </Link>
+
+            <button type="submit" className="delete-nav-button" >
+              Delete Profile
+            </button>
+
             </div>
+
 
             <div className="profile-row">
               <div className="profile-card">
