@@ -45,7 +45,7 @@ export default function Statistics() {
                     <th>Date</th>
                     <th>Unit Code</th>
                     <th>Student</th>
-                    <th>Status</th>
+                    <th>Status: %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -54,7 +54,7 @@ export default function Statistics() {
                       <td>{stat.created_at}</td>
                       <td>{stat.unit}</td>
                       <td>{stat.student}</td>
-                      <td>{stat.status.toString()}</td>
+                      <td>{stat.total}</td>
                     </tr>
                   ))}
                 </tbody>

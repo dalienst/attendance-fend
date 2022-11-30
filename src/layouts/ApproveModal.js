@@ -31,7 +31,7 @@ const Modal = ({ setIsOpen }) => {
                 formData.append("unit", values.unit);
                 formData.append("student", values.student);
                 try {
-                  await axiosPrivate.post(urls.APPROVE, formData);
+                  await axiosPrivate.post(urls.MARK, formData);
                   toast.success("Student Marked");
                   setIsOpen(false);
                 } catch (error) {}
