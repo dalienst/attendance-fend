@@ -21,12 +21,11 @@ export default function Profile() {
     try {
       const response = await axiosPrivate.get(`profile/${auth?.user_id}/`);
       setProfile(response.data);
-      console.log(response.data);
     } catch (error) {
-      //   toast.error(
-      //     "Profile cannot be fetched at this time\n",
-      //     "You need to log in again"
-      //   );
+        toast.error(
+          "Profile cannot be fetched at this time\n",
+          "You need to log in again"
+        );
     }
   };
 
@@ -61,11 +60,6 @@ export default function Profile() {
               <Link to={privateLinks.EditProfile} className="nav-button">
                 Edit Profile
               </Link>
-
-            <button type="submit" className="delete-nav-button" >
-              Delete Profile
-            </button>
-
             </div>
 
 

@@ -1,17 +1,19 @@
+/* eslint-disable no-undef */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import Sidenav from "../layouts/Sidenav";
 import LogoutButton from "../layouts/LogoutButton";
-import { privateLinks } from "../constants/links";
+import { privateLinks, publicLinks } from "../constants/links";
 import useAuth from "../hooks/useAuth";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { urls } from "../constants/links";
 
 export default function Dashboard() {
   const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [units, setUnits] = useState([]);
   const [students, setStudents] = useState([]);
@@ -63,6 +65,16 @@ export default function Dashboard() {
     };
   }, []);
 
+  function deleteAccount(id) {
+    try {
+      axiosPrivate.delete(`me/${id}/`);
+      toast.success("Account Deleted");
+      navigate(publicLinks.Registration, {replace: true})
+    } catch (error) {
+      toast.error("Cannot delete at the moment. Try again later")
+    }
+  }
+
   return (
     <>
       <div className="main">
@@ -89,7 +101,7 @@ export default function Dashboard() {
                       <Link to={privateLinks.EditUser} className="nav-button">
                         Edit Info
                       </Link>
-                      <button type="submit" className="delete-nav-button">
+                      <button onClick={() => deleteAccount(user.id)} type="submit" className="delete-nav-button">
                         Delete Account
                       </button>
                     </div>
