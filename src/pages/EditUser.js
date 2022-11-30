@@ -4,7 +4,7 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { RegistrationSchema } from "../validation/validation";
+import { ProfileSchema } from "../validation/validation";
 import { privateLinks, publicLinks } from "../constants/links";
 import useAuth from "../hooks/useAuth";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
@@ -22,7 +22,7 @@ export default function EditUser() {
                     email: "",
                     username: ""
                 }}
-                validationSchema={RegistrationSchema}
+                validationSchema={ProfileSchema}
                 onSubmit={async (values) => {
                     const formData = new FormData();
                     formData.append("name", values.name);
@@ -30,12 +30,14 @@ export default function EditUser() {
                     formData.append("username", values.username);
                     try {
                         await axiosPrivate.patch(`me/${auth?.user_id}/`, formData);
+                        toast.success("Details Updated Successfully");
+                        navigate(privateLinks.Dashboard, {replace: true});
                     } catch (error) {
                         toast.error("Log in again to see your details")
                     }
                 }}
                 >
-                    {({ errors, touched }) => (
+                    {({ errors, touched, setFieldValue }) => (
           <Form className="reg-form">
             <h2 className="form-title">Update your details</h2>
 

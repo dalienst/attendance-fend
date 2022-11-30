@@ -20,6 +20,10 @@ const RegistrationSchema = Yup.object().shape({
 
 const ProfileSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too Short!').max(100, 'Too Long!'),
+  email: Yup.string().email("Invalid email"),
+  username: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!"),
   bio: Yup.string().min(2, 'The bio is too short!')
 });
 

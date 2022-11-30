@@ -90,7 +90,7 @@ export default function Dashboard() {
                         Edit Info
                       </Link>
                       <button type="submit" className="delete-nav-button">
-                        Delete Profile
+                        Delete Account
                       </button>
                     </div>
                   </div>
