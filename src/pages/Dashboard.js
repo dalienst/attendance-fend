@@ -118,7 +118,7 @@ export default function Dashboard() {
                       <br></br>
                       Units allocated by the admin
                     </p>
-                    <Link to="/units" className="nav-button">
+                    <Link to="/myunits" className="nav-button">
                       View Units
                     </Link>
                   </div>
