@@ -33,7 +33,7 @@ export default function EditUser() {
                         toast.success("Details Updated Successfully");
                         navigate(privateLinks.Dashboard, {replace: true});
                     } catch (error) {
-                        toast.error("Log in again to see your details")
+                        toast.error("Cannot update")
                     }
                 }}
                 >
