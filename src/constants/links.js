@@ -11,7 +11,6 @@ const privateLinks = {
   Approve: '/approve',
   Statistics: '/statistics',
   EditProfile: '/profile/edit',
-  EditUser: '/dashboard/me',
 };
 
 const urls = {
