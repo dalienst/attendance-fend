@@ -39,7 +39,7 @@ h6 {
   font-weight: bold;
   margin-bottom: 1.5em;
 }
-button: {
+button {
   border: none;
   outline: none;
   text-align: center;
@@ -64,9 +64,6 @@ button: {
   border-radius: 5px;
   margin: auto;
   background-color: whitewheat;
-  /* box-shadow: 10px 10px 5px 0px rgba(242, 98, 14, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(242, 98, 14, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(242, 98, 14, 0.75); */
 }
 
 .page-svg {
@@ -214,15 +211,15 @@ td {
   text-align: center;
 }
 .styled-table tbody tr {
-  border-bottom: thin solid #dddddd;
+    border-bottom: 1px solid #dddddd;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+    background-color: #f3f3f3;
 }
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #009879;
 }
 
 /* Modal */
@@ -407,3 +404,51 @@ td {
   border: none;
 }
 /* End of profile */
+
+/* Dashboard */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  height: auto;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+}
+
+/* .card-body {
+  display: flex;
+  flex-direction: column;
+} */
+.card-text {
+  font-size: 13px;
+  margin-bottom: 1em;
+}
+.delete-form-btn {
+  border-radius: 4px;
+  background-color: red;
+  color: white;
+  text-transform: capitalize;
+  padding: 5px;
+  width: 100%;
+  margin-top: 2px;
+  cursor: pointer;
+  margin-top: 0.5em;
+}
+
+.user-edit {
+  display: flex;
+  justify-content: space-between;
+}
